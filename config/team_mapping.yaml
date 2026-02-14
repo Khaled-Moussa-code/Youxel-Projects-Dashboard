@@ -1,0 +1,30 @@
+# Team Mapping Configuration
+# Maps Azure DevOps Activity field to Team names
+
+activity_to_team:
+  # Development teams
+  Development: Development
+  
+  # Frontend team  
+  Front End: Frontend
+  
+  # Design team
+  Design: Design
+  
+  # QA/Testing team
+  Testing: Testing
+  
+  # Business/BA team
+  Business: Business
+
+# Default team for unmapped activities
+default_team: Development
+
+# Alternative activity names (if your organization uses different terms)
+# Uncomment and customize as needed:
+# alternative_mappings:
+#   Backend: Development
+#   Mobile: Development
+#   Web: Frontend
+#   QA: Testing
+#   UI/UX: Design

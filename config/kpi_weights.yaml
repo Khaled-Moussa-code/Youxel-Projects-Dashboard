@@ -1,0 +1,42 @@
+# KPI Weights Configuration
+# Defines the weights used in composite KPI calculation
+# Formula: KPI = (Performance Rate × W1) + (Utilization × W2) + (Done Tasks % × W3)
+# All weights must sum to 1.0
+
+# Default weights applied to all staff and teams
+default_weights:
+  performance_rate: 0.2  # How accurately work was estimated
+  utilization: 0.1       # How fully capacity was used
+  done_tasks: 0.7        # Percentage of tasks completed
+
+# Team-specific weights (optional)
+# Use this to apply different weights to specific teams
+# Uncomment and customize as needed:
+# 
+# team_specific_weights:
+#   Design:
+#     performance_rate: 0.3  # Design team values estimation accuracy more
+#     utilization: 0.2
+#     done_tasks: 0.5
+#   
+#   Testing:
+#     performance_rate: 0.1  # Testing team focuses more on completion
+#     utilization: 0.1
+#     done_tasks: 0.8
+
+# Historical weight changes
+# Keep this for reference when weights change over time
+# history:
+#   - date: "2026-01-01"
+#     weights:
+#       performance_rate: 0.3
+#       utilization: 0.2
+#       done_tasks: 0.5
+#     reason: "Initial configuration"
+#   
+#   - date: "2026-02-01"
+#     weights:
+#       performance_rate: 0.2
+#       utilization: 0.1
+#       done_tasks: 0.7
+#     reason: "Increased focus on completion rate"
