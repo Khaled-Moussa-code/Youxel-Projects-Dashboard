@@ -112,6 +112,8 @@ def process_sprint_file(uploaded_file):
     try:
         # Save uploaded file to temp location
         temp_path = "temp_sprint.xlsx"
+        with open(temp_path, "wb") as f:
+            f.write(uploaded_file.getbuffer())
         
         # Initialize processor
         processor = SprintDataProcessor(temp_path)
