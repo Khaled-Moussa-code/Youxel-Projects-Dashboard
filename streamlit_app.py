@@ -100,8 +100,14 @@ try:
     from automation.data_processor import SprintDataProcessor
     from automation.calculator import SprintCalculator
     from automation.excel_updater import ExcelUpdater
-except ImportError:
-    st.error("⚠️ Automation modules not found. Please ensure the app is properly deployed.")
+except ImportError as e:
+    st.error(f"⚠️ Import Error: {str(e)}")
+    st.error(f"Python path: {sys.path}")
+    import os
+    st.error(f"Current directory: {os.getcwd()}")
+    st.error(f"Files in current directory: {os.listdir('.')}")
+    if os.path.exists('automation'):
+        st.error(f"Files in automation: {os.listdir('automation')}")
     st.stop()
 
 
