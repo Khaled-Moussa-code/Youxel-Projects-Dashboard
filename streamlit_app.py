@@ -5,7 +5,6 @@ Streamlit Web Application
 
 import streamlit as st
 import pandas as pd
-import openpyxl
 from io import BytesIO
 import sys
 from pathlib import Path
@@ -108,11 +107,11 @@ except ImportError:
 
 def process_sprint_file(uploaded_file):
     """Process the uploaded Excel file"""
+    import openpyxl  # Import here instead of at the top
+    
     try:
         # Save uploaded file to temp location
         temp_path = "temp_sprint.xlsx"
-        with open(temp_path, "wb") as f:
-            f.write(uploaded_file.getbuffer())
         
         # Initialize processor
         processor = SprintDataProcessor(temp_path)
