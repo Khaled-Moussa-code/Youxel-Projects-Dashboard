@@ -3,30 +3,10 @@ Youxel Project Dashboard - Sprint Analysis Automation
 Streamlit Web Application
 """
 
-# Force install missing packages FIRST
-import subprocess
-import sys
-
-def install_package(package):
-    subprocess.check_call([sys.executable, "-m", "pip", "install", package, "--quiet"])
-
-# Install openpyxl if missing
-try:
-    import openpyxl
-except ImportError:
-    install_package("openpyxl==3.1.2")
-    import openpyxl
-
-# Install pyyaml if missing  
-try:
-    import yaml
-except ImportError:
-    install_package("pyyaml==6.0.1")
-
-# Now import the rest
 import streamlit as st
 import pandas as pd
 from io import BytesIO
+import sys
 from pathlib import Path
 
 # Set page config
@@ -36,7 +16,6 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="collapsed"
 )
-
 # Custom CSS with Youxel branding
 st.markdown("""
 <style>
