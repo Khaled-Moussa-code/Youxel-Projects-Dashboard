@@ -96,18 +96,37 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Import automation modules
+import subprocess
+import sys
+
+st.error("=== DEBUG INFO ===")
+st.error(f"Python version: {sys.version}")
+
+# Check installed packages
+try:
+    result = subprocess.run([sys.executable, "-m", "pip", "list"], capture_output=True, text=True)
+    st.error(f"Installed packages:\n{result.stdout}")
+except:
+    st.error("Could not list packages")
+
+try:
+    import openpyxl
+    st.success("✅ openpyxl imported successfully!")
+except ImportError as e:
+    st.error(f"❌ Cannot import openpyxl: {e}")
+
 try:
     from automation.data_processor import SprintDataProcessor
     from automation.calculator import SprintCalculator
     from automation.excel_updater import ExcelUpdater
+    st.success("✅ Automation modules imported successfully!")
 except ImportError as e:
-    st.error(f"⚠️ Import Error: {str(e)}")
-    st.error(f"Python path: {sys.path}")
+    st.error(f"❌ Cannot import automation modules: {e}")
     import os
     st.error(f"Current directory: {os.getcwd()}")
-    st.error(f"Files in current directory: {os.listdir('.')}")
+    st.error(f"Files: {os.listdir('.')}")
     if os.path.exists('automation'):
-        st.error(f"Files in automation: {os.listdir('automation')}")
+        st.error(f"Automation files: {os.listdir('automation')}")
     st.stop()
 
 
